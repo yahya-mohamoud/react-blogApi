@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import  '../styles/posts.css'
 function Post() {
     const [posts, setPosts] = useState([])
     const token = localStorage.getItem("token")
@@ -18,7 +18,6 @@ function Post() {
         .catch((err) => console.error(err))
 
     }, [token])
-    console.log(posts)
   return (
     <div>
       <h1>Posts</h1>
@@ -26,7 +25,7 @@ function Post() {
         <div key={p.id}>
             {p.title}
             {p.comments.map(c => {
-                <p>{c.content} </p>
+                return <p key={c.id}>{c.content} </p>
             })}
         </div>
        

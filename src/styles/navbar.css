@@ -1,0 +1,28 @@
+:root {
+    --background-color: #01030fe7;
+    --white-cl: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    color: var(--white-cl);
+    padding: .6rem .7rem;
+    align-items: center;
+}
+
+.lists ul {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+.lists li {
+    list-style: none;
+}
+
+.header a {
+    color: var(--white-cl);
+    text-decoration: none;
+}
