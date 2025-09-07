@@ -16,6 +16,7 @@
     display: flex;
     gap: 1rem;
     font-size: 1.3rem;
+    align-items: center;
 }
 
 .lists li {
@@ -25,4 +26,48 @@
 .header a {
     color: var(--white-cl);
     text-decoration: none;
+}
+
+.avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    background-color: rgb(252, 252, 252);
+    color: black;
+    padding: .5rem;
+    box-shadow: 1px 2px 5px 1px;
+    border-radius: 8px;
+}
+
+.hidden .logout {
+    border: none;
+    background: #2b8ce1;
+    color: white;
+    padding: .3rem;
+    border-radius: 4px;
+    display: block;
+    margin: 10px auto 0;
+    cursor: pointer;
+}
+
+.avatar:hover>.hidden {
+    display: block;
+}
+
+.face {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.face img {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
 }

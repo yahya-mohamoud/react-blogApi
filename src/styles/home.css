@@ -15,8 +15,13 @@
     gap: 2rem;
 }
 
-.blog-img {
+.info p {
+    width: 50ch;
+}
 
+.blog-img {
+    min-width: 250px;
+    min-height: 250px;
 }
 
 .blog-img img {
@@ -35,7 +40,8 @@
     display: block;
     margin: 2rem auto;
     position: relative;
-    transition: background-color .4s ease-in;
+    cursor: pointer;
+    transition: background-color .4s ease-in, color .7s ease-in;
 }
 
 .cta-btn::before {
@@ -46,7 +52,7 @@
   width: 0;
   height: 100%;
   background: #2b8ce1;
-  transition: width .7s ease-in;
+  transition: width .7s ease-in, color .7s ease-in;
   color: white;
   border-radius: .9rem;
   z-index: -1;

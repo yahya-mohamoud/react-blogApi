@@ -1,0 +1,24 @@
+.post-title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.content{
+    display: block;
+    margin: 0 auto;
+    width: 50ch;
+    line-height: 1.6rem;
+    word-spacing: .31rem;
+}
+
+.post-img {
+    width: 80%;
+    display: block;
+    margin-top: 4rem;
+    margin: 0 auto;
+}
