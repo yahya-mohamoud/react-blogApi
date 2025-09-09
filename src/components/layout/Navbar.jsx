@@ -28,15 +28,11 @@ function Navbar() {
       <div className="lists">
         {token ? (
           <ul>
-            <NavLink to='/posts'
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >Posts</NavLink>
+            <NavLink to='/posts'>Posts</NavLink>
             <div className="avatar">
               <div className="face">
-              <img src={image} alt="" />
-              <h4>@{username}</h4>
+                <img src={image} alt="" />
+                <h4>@{username}</h4>
               </div>
               <div className="hidden">
                 <h6>{email}</h6>
@@ -46,16 +42,13 @@ function Navbar() {
           </ul>
         ) : (
           <ul>
+            <NavLink to='/posts'>Posts</NavLink>
             <NavLink to='/auth/login'
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
             >Login</NavLink>
-            <NavLink to='/auth/signup'
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >Signup</NavLink>
+
           </ul>
         )}
       </div>
