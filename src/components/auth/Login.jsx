@@ -11,9 +11,14 @@ function Login() {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    const { setToken, setLoggedin } = useContext(AuthContext)
+    const { setToken, success, setSuccess } = useContext(AuthContext)
 
     const navigate = useNavigate()
+
+    const handleCloseBtn = (e) => {
+        e.preventDefault()
+        setError("")
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,15 +36,13 @@ function Login() {
 
             const data = await res.json()
             if (!res.ok) {
-                setError(data.message )
-                setTimeout(() => {
-                    setError("")
-                }, 3000)
+                setError(data.message)
+               
                 return;
             }
             localStorage.setItem("token", data.token)
             setToken(data.token)
-            setLoggedin(true)
+            setSuccess("Logged in successfully")
             navigate('/')
         } catch (error) {
             console.error("Error Loading in: ", error.message)
@@ -47,9 +50,11 @@ function Login() {
     }
     return (
         <>
-        {error &&
+            {error &&
                 <div className="error">
                     <h4>{error}</h4>
+                    <button onClick={handleCloseBtn}>X</button>
+
                 </div>}
             <div className="loginForm">
                 <form onSubmit={handleSubmit}>

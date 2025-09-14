@@ -6,12 +6,11 @@ function Post() {
   const [posts, setPosts] = useState([])
   const token = localStorage.getItem("token")
   const [error, setError] = useState("")
-  // console.log(token)
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3030/api/posts", {
+        const res = await fetch("http://localhost:3030/api/posts/published", {
           method: "GET",
         })
 
@@ -38,7 +37,7 @@ function Post() {
           <div key={p.id} className="post-card">
             <img src={p.imageUrl} alt={p.title} className="post-image" />
             <NavLink to={`/posts/${p.id}`} className="post-link"><h2>{p.title}</h2></NavLink>
-           
+            <NavLink to={`/posts/${p.id}`} className="see-more"><p>See more</p></NavLink>
           </div>
 
         ))}

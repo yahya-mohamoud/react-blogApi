@@ -1,6 +1,6 @@
 .home-container {
     margin-top: 3.5rem;
-    padding: 2rem ;
+    padding:  2rem;
     min-height: 80dvh;
 }
 
@@ -17,6 +17,7 @@
 
 .info p {
     width: 50ch;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .blog-img {
@@ -32,7 +33,6 @@
 .cta-btn {
     border: 2px solid #0886dff5;
     padding: 1rem;
-    /* background-color: #0886dff5; */
     color: #0e0d0d;
     font-size: 1.2rem;
     font-weight: 700;
@@ -60,11 +60,96 @@
 
 .cta-btn:hover::before {
     width: 100%;
-    /* z-index: 1; */
     color: white;
 }
 
 .cta-btn:hover{
     background-color: transparent;
+    color: white;
+}
+
+@media (max-width: 625px) {
+    .hero {
+        display: flex;
+        flex-wrap: wrap;
+    }
+      .info p{
+       width: 100%;
+       font-size: 1.3rem;
+       font-weight: 500;
+       line-height: 1.5rem;
+    }
+
+    .home-container {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 624px) {
+    .info p{
+       width: 100%;
+       font-size: 1.35rem;
+       font-weight: 500;
+       line-height: 1.6rem;
+    }
+    .hero {
+        flex-wrap: wrap;
+        gap: 3;
+    }
+
+    .home-container {
+        padding-top: 0;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    body {
+        max-width: 1265px;
+        margin: 0 auto;
+    }
+}
+
+
+.error, .success {
+    width: fit-content;
+    padding: 10px;
+    height: 3rem;
+    margin-top: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 0rem .4rem .4rem 0;
+    animation: fadein 1s ease forwards;
+    transition: opacity 1s ease;
+    position: absolute;
+    gap: 1rem;
+}
+
+.error {
+     background-color: red;
+}
+
+.success {
+     background-color: rgb(12, 205, 12);
+}
+
+.error button{
+    border: none;
+    background-color: white;
+    color: red;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: .21rem;
+    border-radius: 4px;
+}
+
+.success button:hover {
+    background-color: rgb(45, 223, 14);
+    color: white;
+}
+
+.error button:hover {
+    background-color: red;
     color: white;
 }

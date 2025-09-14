@@ -29,6 +29,7 @@ input:focus {
 
 .loginForm form input {
     height: 2rem;
+    border: 1px solid rgb(45, 45, 45, 0.6);
 }
 
 .btn {
@@ -84,9 +85,24 @@ input:focus {
     display: flex;
     align-items: center;
     border-radius: 0rem .4rem .4rem 0;
-    animation: fadein 1s ease forwards;
+    animation: fadein 1s ease;
     transition: opacity 1s ease;
     position: absolute;
+}
+
+.error button{
+    border: none;
+    background-color: white;
+    color: red;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: .21rem;
+    border-radius: 4px;
+}
+
+.error button:hover {
+    background-color: red;
+    color: white;
 }
 
 @keyframes fadein {

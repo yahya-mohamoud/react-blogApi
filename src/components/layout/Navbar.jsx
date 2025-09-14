@@ -6,7 +6,7 @@ import { jwtDecode } from 'jwt-decode'
 import image from "../../assets/image.png"
 
 function Navbar() {
-  const { token, setToken } = useContext(AuthContext)
+  const { token, setToken, logout } = useContext(AuthContext)
 
   let username = ''
   let email = ''
@@ -17,11 +17,11 @@ function Navbar() {
     // console.log(username, email)
   }
 
-  const handleLogout = async (e) => {
-    localStorage.removeItem("token")
-    setToken(null)
+  // const handleLogout = async (e) => {
+  //   localStorage.removeItem("token")
+  //   setToken(null)
 
-  }
+  // }
   return (
     <div className="header">
       <h1><a href="/">Daily Blog</a></h1>
@@ -36,7 +36,7 @@ function Navbar() {
               </div>
               <div className="hidden">
                 <h6>{email}</h6>
-                <button type='submit' className='logout' onClick={handleLogout}>Logout</button>
+                <button type='submit' className='logout' onClick={logout}>Logout</button>
               </div>
             </div>
           </ul>

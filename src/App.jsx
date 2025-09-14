@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Login from './components/auth/Login'
 import Posts from './components/posts/Post'
@@ -8,13 +8,32 @@ import { createContext } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Signup from './components/auth/Signup'
 import PostDetail from './components/posts/PostDetail'
+import { jwtDecode } from 'jwt-decode'
 
 export const AuthContext = createContext()
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"))
   const [loggedin, setLoggedin] = useState(false)
+  const [success, setSuccess] = useState("")
+
+ useEffect(() => {
+    const storedToken = localStorage.getItem("token")
+    if (storedToken) {
+      if (isTokenExpired(storedToken)) {
+        logout()
+      } else {
+        setToken(storedToken)
+      }
+    }
+  }, [])
+
+   function logout() {
+    localStorage.removeItem("token")
+    setToken(null)
+  }
+
   return (
-    <AuthContext.Provider value={{ token, setToken, loggedin, setLoggedin }}>
+    <AuthContext.Provider value={{ token, setToken, logout, setLoggedin, loggedin, success, setSuccess }}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -29,4 +48,13 @@ function App() {
   )
 }
 
+function isTokenExpired(token) {
+  try {
+    const decoded = jwtDecode(token);
+    if (!decoded.exp) return false; // no expiry claim, assume valid
+    return decoded.exp * 1000 < Date.now();
+  } catch (e) {
+    return true;
+  }
+}
 export default App

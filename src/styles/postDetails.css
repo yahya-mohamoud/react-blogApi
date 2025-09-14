@@ -4,37 +4,148 @@
 
 .post-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    padding: 1rem;
+}
+
+.author {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.author img {
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid rgb(25, 66, 137);
 }
 
 .post-content {
-    font-size: 1.1rem;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.content{
+.container hr {
+    background-color: beige;
+    box-shadow: -1px 0px 3px 0px darkblue;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content {
     display: block;
     margin: 0 auto;
-    max-width: 50ch;
-    line-height: 1.6rem;
-    word-spacing: .31rem;
+    max-width: 49ch;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .post-img {
-    width: 80%;
+    width: 90vmin;
     display: block;
-    margin-top: 4rem;
-    margin: 0 auto;
+    margin: 2rem auto 0;
+    height: 50vmin;
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: .9rem;
 }
 
-.comments{
-    margin: 1rem 2rem;
+.comments {
+    margin: 1rem auto;
+    max-width: 100vmin;
+}
+
+.response {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.comment {
+    box-shadow: 2px 1px 5px 0px rgb(149, 142, 137);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.comments form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.addBtn {
+    background-color: rgb(29, 230, 73);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: .4rem .51rem;
+    font-weight: 600;
+    border-radius: .5rem;
+    transition: transform .2s linear;
+}
+
+.addBtn:hover {
+    background-color: rgba(29, 216, 69, 0.947);
+    transform: translate(-2px, 2px);
+    box-shadow: 1px 1px 2px 1px darkblue;
 }
 
 .user {
     display: flex;
     padding: 1rem;
     gap: .71rem;
+    position: relative;
+}
+
+.options {
+    font-size: 2.4rem;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+    
+}
+
+.option-details {
+    width: 120px;
+    height: 90px;
+    background-color: rgb(250, 247, 247);
+    position: absolute;
+    top: 30px;
+    right: 0%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 3px darkblue;
+    /* gap: .51rem; */
+    display: none;
+
+}
+
+.option-details button {
+    width: 80%;
+    padding: .2rem;
+    border: none;
+    border-radius: .3rem;
+    display: block;
+    margin: .5rem auto;
+    color: white;
+    cursor: pointer;
+}
+.delete {
+    background-color: red;
+}
+.edit {
+    background-color: rgb(29, 230, 73);
+}
+
+.options:hover .option-details{
+    display: flex;
 }
 
 .user-img {
@@ -48,7 +159,7 @@
 .comments hr {
     height: .24rem;
     background-color: green;
-    width: 200px;
+    width: 140px;
     margin: 0 1rem 1rem;
 }
 
@@ -64,4 +175,16 @@
 .comment-inp::placeholder {
     padding: 0 .1rem;
     font-size: 1.2rem;
+}
+
+@media (max-width: 624px) {
+    .post-img {
+        width: 90vmin;
+    }
+    .content {
+        font-size: 1rem;
+        max-width: 40ch;
+        line-height: 1.6rem;
+        word-spacing: .31rem;
+    }
 }
