@@ -15,8 +15,10 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"))
   const [loggedin, setLoggedin] = useState(false)
   const [success, setSuccess] = useState("")
+  const [error, setError] = useState("")
+  const [refresh, setRefresh] = useState(0)
 
- useEffect(() => {
+  useEffect(() => {
     const storedToken = localStorage.getItem("token")
     if (storedToken) {
       if (isTokenExpired(storedToken)) {
@@ -27,13 +29,13 @@ function App() {
     }
   }, [])
 
-   function logout() {
+  function logout() {
     localStorage.removeItem("token")
     setToken(null)
   }
 
   return (
-    <AuthContext.Provider value={{ token, setToken, logout, setLoggedin, loggedin, success, setSuccess }}>
+    <AuthContext.Provider value={{ token, setToken, logout, setLoggedin, loggedin, success, setSuccess, error, setError, refresh, setRefresh }}>
       <BrowserRouter>
         <Navbar />
         <Routes>
