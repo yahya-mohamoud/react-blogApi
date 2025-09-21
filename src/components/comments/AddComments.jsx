@@ -27,7 +27,6 @@ function AddComments({setContent, content, postId, setRefresh, refresh}) {
             setRefresh(prev => prev + 1)
         }
     }
-    console.log(refresh)
   return (
     <div className="addComment">
                         <form onSubmit={handleSubmit}>

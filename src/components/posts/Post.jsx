@@ -12,6 +12,10 @@ function Post() {
       try {
         const res = await fetch("http://localhost:3030/api/posts/published", {
           method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-type": "application/json"
+          }
         })
 
         const data = await res.json()

@@ -54,13 +54,11 @@ function PostDetail() {
 
    const handleCloseBtn = (e) => {
         e.preventDefault()
-        console.log(e)
         setError("")
     }
     const handleSuccessBtn = (e) => {
         e.preventDefault()
         setSuccess("")
-        console.log(e)
 
     }
     return (
@@ -82,7 +80,7 @@ function PostDetail() {
                 <img src={image} className="avater" alt="" width={"35px"} />
                 <div className="date">
                     <h3>by@{post.author.username}</h3>
-                    <h5>{dayjs(post.author.created_at).fromNow()}</h5>
+                    <h5>{dayjs(post.created_at).fromNow()}</h5>
                 </div>
             </div>
             <div className="post-content">
