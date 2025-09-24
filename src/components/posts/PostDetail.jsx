@@ -15,8 +15,9 @@ function PostDetail() {
     const token = localStorage.getItem("token") 
     const [post, setPost] = useState(null)
     const [content, setContent] = useState('')
-    const {success, setSuccess, error, setError, refresh, setRefresh} = useContext(AuthContext)
-   
+    const {success, setSuccess, error, setError} = useContext(AuthContext)
+   const [isEditing, setIsEditing] = useState(false)
+   const [refresh, setRefresh] = useState(0)
     const { id } = useParams()
 
     // to have an access in username and email
@@ -79,31 +80,40 @@ function PostDetail() {
             <div className="author">
                 <img src={image} className="avater" alt="" width={"35px"} />
                 <div className="date">
-                    <h3>by@{post.author.username}</h3>
-                    <h5>{dayjs(post.created_at).fromNow()}</h5>
+                    <h3>by @{post.author.username}</h3>
+                    <h5>Last Updated {dayjs(post.updated_at).fromNow()}</h5>
                 </div>
             </div>
             <div className="post-content">
+            <div className="content">
                 <div className="content" dangerouslySetInnerHTML={{ __html: post.content }}>
                 </div>
+            </div>
                 <hr />
                 <h3 className="response">Responses</h3>
 
                 <div className="comments">
-                    <AddComments 
-                        content={content} 
-                        setContent={setContent} 
-                        refresh={refresh} 
-                        setRefresh={setRefresh} 
-                        postId={post.id}
-                    />
-                   < Comment 
+                    {/* {isEditing ? ( */}
+                        < Comment 
                         post={post} 
                         refresh={refresh} 
                         setRefresh={setRefresh} 
                         content={content}
                         setContent={setContent}
-                    />
+                        isEditing={isEditing}
+                        setIsEditing={setIsEditing}
+                        />
+                    {/* ) :( */}
+
+                        <AddComments 
+                        content={content} 
+                        setContent={setContent} 
+                        refresh={refresh} 
+                        setRefresh={setRefresh} 
+                        postId={post.id}
+                        />
+                    {/* ) */}
+                {/* } */}
                 </div>
             </div>
         </section>

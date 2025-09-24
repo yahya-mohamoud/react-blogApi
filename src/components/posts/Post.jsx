@@ -33,20 +33,28 @@ function Post() {
   }, [])
 
   return (
-    <section className="posts-section">
-      <h1 className="posts-title">Posts</h1>
+    <>
 
-      <div className="post-container">
-        {posts.map((p) => (
-          <div key={p.id} className="post-card">
-            <img src={p.imageUrl} alt={p.title} className="post-image" />
-            <NavLink to={`/posts/${p.id}`} className="post-link"><h2>{p.title}</h2></NavLink>
-            <NavLink to={`/posts/${p.id}`} className="see-more"><p>See more</p></NavLink>
-          </div>
+      <section className="posts-section">
+        {posts.length > 0 ? (
+          <>
+            <h1 className="posts-title">Posts</h1>
 
-        ))}
-      </div>
-    </section>
+            <div className="post-container">
+              {posts.map((p) => (
+                <div key={p.id} className="post-card">
+                  <img src={p.imageUrl} alt={p.title} className="post-image" />
+                  <NavLink to={`/posts/${p.id}`} className="post-link"><h2>{p.title}</h2></NavLink>
+                </div>
+
+              ))}
+            </div>
+          </>
+  ) : (
+<></>
+)}
+  </section>
+    </>
   )
 }
 

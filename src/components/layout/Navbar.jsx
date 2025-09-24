@@ -42,10 +42,14 @@ function Navbar() {
           </ul>
         ) : (
           <ul>
-            <NavLink to='/posts'>Posts</NavLink>
+            <NavLink to='/auth/signup'
+              className={({ isActive}) =>
+                isActive ? "active" : ""
+              }
+            >Signup</NavLink>
             <NavLink to='/auth/login'
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
+              className={({ isActive}) =>
+                isActive ? "active" : ""
               }
             >Login</NavLink>
 
