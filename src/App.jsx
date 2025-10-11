@@ -18,6 +18,7 @@ function App() {
   const [error, setError] = useState("")
   const [refresh, setRefresh] = useState(0)
 
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token")
     if (storedToken) {
@@ -32,6 +33,7 @@ function App() {
   function logout() {
     localStorage.removeItem("token")
     setToken(null)
+    
   }
 
   return (

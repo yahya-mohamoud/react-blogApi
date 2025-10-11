@@ -80,3 +80,12 @@
 .post-link:hover {
   color: #2563eb;
 }
+
+.no-posts {
+  text-align: center;
+  display: grid;
+  min-height: 70dvh;
+  place-content: center;
+  font-size: 2rem;
+  color: red;
+}

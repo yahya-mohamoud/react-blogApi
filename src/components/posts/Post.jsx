@@ -51,9 +51,12 @@ function Post() {
             </div>
           </>
   ) : (
-<></>
+<>
+     <h2 className="no-posts"> OOPS! There is no published posts</h2>
+</>
 )}
   </section>
+ 
     </>
   )
 }

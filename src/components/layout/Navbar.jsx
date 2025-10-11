@@ -1,5 +1,5 @@
 import '../../styles/navbar.css'
-import { NavLink } from 'react-router'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../App'
 import { useContext } from 'react'
 import { jwtDecode } from 'jwt-decode'
@@ -7,6 +7,7 @@ import image from "../../assets/image.png"
 
 function Navbar() {
   const { token, setToken, logout } = useContext(AuthContext)
+    const navigate = useNavigate()
 
   let username = ''
   let email = ''
@@ -17,11 +18,10 @@ function Navbar() {
     // console.log(username, email)
   }
 
-  // const handleLogout = async (e) => {
-  //   localStorage.removeItem("token")
-  //   setToken(null)
-
-  // }
+  const handleLogout = async (e) => {
+    logout()
+    navigate("/auth/login")
+  }
   return (
     <div className="header">
       <h1><a href="/">Daily Blog</a></h1>
@@ -36,7 +36,7 @@ function Navbar() {
               </div>
               <div className="hidden">
                 <h6>{email}</h6>
-                <button type='submit' className='logout' onClick={logout}>Logout</button>
+                <button type='submit' className='logout' onClick={handleLogout}>Logout</button>
               </div>
             </div>
           </ul>
